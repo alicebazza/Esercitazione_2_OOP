@@ -1,8 +1,5 @@
 #include <iostream>
-#include <concepts>
 #include "complex_number.hpp"
-
-using namespace std;
 
 int main()
 {
@@ -10,28 +7,29 @@ int main()
     ComplexNumber<float> c2(3.0f, -4.0f); // Un altro numero complesso: 3 - 4i
 
     // Stampa dei numeri complessi
-    cout << "Numero complesso 1: " << c1 << endl;
-    cout << "Numero complesso 2: " << c2 << endl;
-
+    std::cout << "Numero complesso c1: " << c1 << std::endl;
+    std::cout << "Numero complesso c2: " << c2 << std::endl;
+    
     // Somma di due numeri complessi
     ComplexNumber<float> c3 = c1 + c2;
-    cout << "Somma: " << c3 << endl;
-
-    // Somma usando l'operatore +=
-    c1 += c2;
-    cout << "Somma usando +=: " << c1 << endl;
+    std::cout << "Somma tra complessi: c3 = (" << c1 << ") + (" << c2 << ") = " << c3 << std::endl;
 
     // Moltiplicazione di due numeri complessi
     ComplexNumber<float> c4 = c1 * c2;
-    cout << "Moltiplicazione: " << c4 << endl;
-
-    // Moltiplicazione usando l'operatore *=
-    c1 *= c2;
-    cout << "Moltiplicazione usando *=: " << c1 << endl;
+    std::cout << "Moltiplicazione tra complessi: c4 = (" << c1 << ") * (" << c2 << ") = " << c4 << std::endl;
 
     // Coniugato di un numero complesso
     ComplexNumber<float> c5 = c1.conjugate();
-    cout << "Coniugato di c1: " << c5 << endl;
-
+    std::cout << "Coniugato di " << c1 << " : c5 = "<<  c5 << std::endl;
+    
+    // Somma di un numero complesso e uno reale
+    float f1 = 7.0;
+    ComplexNumber<float> c6 = c1 + f1;
+    std::cout << "Somma con un reale: c6 = (" << c1 << ") + " << f1 << " = " << c6 << std::endl;
+    
+    // Moltiplicazione di un numero complesso e uno reale
+    ComplexNumber<float> c7 = c1 * f1;
+    std::cout << "Moltiplicazione con un reale: c7 = (" << c1 << ") * " << f1 << " = " << c7 << std::endl;
+    
     return 0;
 }
